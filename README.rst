@@ -7,7 +7,8 @@ Collect translated messages from other applications.
 USAGE
 -----
 
-1. Add application ``collectmessages`` to your ``INSTALLED_APPS``::
+1. Add application ``collectmessages`` to ``INSTALLED_APPS`` in
+   ``settings.py``::
 
     INSTALLED_APPS = (
         ...
@@ -17,24 +18,26 @@ USAGE
         ...
     )
 
-2. Add the following options to your ``settings.py``:
+2. Add the following options to ``settings.py``:
 
-``COLLECTMESSAGES_PATH``
-    The path of the locale directory where the generated translation files
-    will be placed.  This option is required.
+   ``COLLECTMESSAGES_PATH``
+        The path of the locale directory where the generated translation
+        files will be placed.  This option is required.
 
-``COLLECTMESSAGES_LANGUAGES``
-    A list of language codes.  Translation files will be generated for each
-    code.  This option is required.
+   ``COLLECTMESSAGES_LANGUAGES``
+        A list of language codes.  Translation files will be generated for
+        each code.  This option is required.
 
-``COLLECTMESSAGES_FINDERS``
-    A list of message finders.  Each message finder returns a sequence of
-    translated messages for the translation files.  This option is required.
+   ``COLLECTMESSAGES_FINDERS``
+        A list of message finders.  Each message finder returns a sequence
+        of translated messages for the translation files.  This option
+        is required.
 
-``COLLECTMESSAGES_METADATA``
-    A dictionary with the metadata for the PO-files.  This setting is optional.
+   ``COLLECTMESSAGES_METADATA``
+        A dictionary with the metadata for the PO-files.  This setting
+        is optional.
 
-Example::
+   Example::
 
     COLLECTMESSAGES_PATH = "collected/locale"
     COLLECTMESSAGES_LANGUAGES = ("en", "nl")
@@ -54,18 +57,28 @@ Example::
         "Content-Transfer-Encoding": "8bit",
     }
 
-3. Use the custom command ``collect_messages`` to generate the translation
+3. Add ``COLLECTMESSAGES_PATH`` to ``LOCALE_PATHS`` in ``settings.py``::
+
+    LOCALE_PATHS = (
+        ...
+
+        "collected/locale",
+
+        ...
+    )
+
+4. Use the custom command ``collect_messages`` to generate the translation
    files::
 
     $ python django-manage.py collect_messages
 
-This command has the following options:
+   This command has the following options:
 
     -c, --compile   Compile the PO-files.
     -t, --pot-file  Create a POT-file.
     -v, --verbose   Show more information.
 
-4. Create custom message finders by subclassing ``BaseMessageFinder`` and
+5. Create custom message finders by subclassing ``BaseMessageFinder`` and
    customizing method ``find()``::
 
     from collectmessages.finders import BaseMessageFinder
