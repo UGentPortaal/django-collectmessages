@@ -11,6 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   installation
+   configuration
+   commands
+   usage
+
    apidoc/modules
 
 
