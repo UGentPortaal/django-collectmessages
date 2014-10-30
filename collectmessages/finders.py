@@ -1,3 +1,7 @@
+"""Message finders are classes that find translated messages.
+"""
+
+
 class BaseMessageFinder(object):
     """Base finder for translated messages.
 

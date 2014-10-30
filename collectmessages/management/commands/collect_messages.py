@@ -1,3 +1,14 @@
+"""Use the command ``collect_messages`` to generate the translation files::
+
+    $ python django-manage.py collect_messages
+
+This command has the following options:
+
+    -c, --compile   Compile the PO-files.
+    -t, --pot-file  Create a POT-file.
+    -v, --verbose   Show more information.
+"""
+
 import optparse
 import os
 import os.path
@@ -13,16 +24,6 @@ from collectmessages.finders import BaseMessageFinder
 
 class Command(BaseCommand):
     """Custom Django command ``collect_messages``.
-
-    Use this command to generate the translation files::
-
-        $ python django-manage.py collect_messages
-
-    This command has the following options:
-
-        -c, --compile   Compile the PO-files.
-        -t, --pot-file  Create a POT-file.
-        -v, --verbose   Show more information.
     """
     args = ""
     help = "Collect translated messages from other applications."
