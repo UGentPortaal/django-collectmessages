@@ -42,7 +42,7 @@ Configuration
             "Content-Transfer-Encoding": "8bit",
         }
 
-3. Add ``COLLECTMESSAGES_PATH`` to ``LOCALE_PATHS`` in ``settings.py``, so
+2. Add ``COLLECTMESSAGES_PATH`` to ``LOCALE_PATHS`` in ``settings.py``, so
    Django can find the translations:
 
    .. code-block:: python
