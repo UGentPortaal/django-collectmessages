@@ -11,14 +11,9 @@ Subpackages
 Submodules
 ----------
 
-collectmessages.finders module
-------------------------------
+.. toctree::
 
-.. automodule:: collectmessages.finders
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+   collectmessages.finders
 
 Module contents
 ---------------

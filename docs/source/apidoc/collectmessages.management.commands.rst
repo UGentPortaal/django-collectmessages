@@ -4,14 +4,9 @@ collectmessages.management.commands package
 Submodules
 ----------
 
-collectmessages.management.commands.collect_messages module
------------------------------------------------------------
+.. toctree::
 
-.. automodule:: collectmessages.management.commands.collect_messages
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+   collectmessages.management.commands.collect_messages
 
 Module contents
 ---------------
