@@ -15,6 +15,7 @@ Contents:
    configuration
    commands
    usage
+   documentation
 
    apidoc/modules
 
