@@ -45,7 +45,7 @@ class Command(BaseCommand):
             help="Create a POT-file."
         ),
         optparse.make_option(
-            "-v", "--verbose",
+            "-s", "--verbose",
             action="store_true",
             dest="verbose",
             default=False,
