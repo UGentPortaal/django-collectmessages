@@ -76,7 +76,7 @@ USAGE
 
     -c, --compile   Compile the PO-files.
     -t, --pot-file  Create a POT-file.
-    -v, --verbose   Show more information.
+    -s, --verbose   Show more information.
 
 5. Create custom message finders by subclassing ``BaseMessageFinder`` and
    customizing method ``find()``::
