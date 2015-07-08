@@ -18,7 +18,7 @@ setup(
     long_description=README,
     url='https://github.com/UGentPortaal/django-collectmessages',
     author='UGent Portaalteam',
-    author_email='portaal@ugent.be',
+    author_email='portaal-tech@ugent.be',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
