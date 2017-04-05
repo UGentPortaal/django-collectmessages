@@ -16,7 +16,12 @@ import os.path
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
-from django.utils.importlib import import_module
+try:
+    # Django < 1.9
+    from django.utils.importlib import import_module
+except ImportError:
+    # Django >= 1.9
+    from importlib import import_module
 from polib import POFile
 
 from collectmessages.finders import BaseMessageFinder
