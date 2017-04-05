@@ -19,7 +19,7 @@ from django.core.management.base import CommandError
 try:
     # Django < 1.9
     from django.utils.importlib import import_module
-except:
+except ImportError:
     # Django >= 1.9
     from importlib import import_module
 from polib import POFile
