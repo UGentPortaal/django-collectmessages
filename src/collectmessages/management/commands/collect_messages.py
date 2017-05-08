@@ -6,7 +6,6 @@ This command has the following options:
 
     -c, --compile   Compile the PO-files.
     -t, --pot-file  Create a POT-file.
-    -v, --verbose   Show more information.
 """
 
 import optparse
@@ -33,30 +32,21 @@ class Command(BaseCommand):
     args = ""
     help = "Collect translated messages from other applications."
 
-    option_list = [o for o in BaseCommand.option_list
-                   if "-v" not in o._short_opts] + [
-        optparse.make_option(
+    def add_arguments(self, parser):
+        parser.add_argument(
             "-c", "--compile",
             action="store_true",
             dest="compile",
             default=False,
             help="Compile the PO-files."
         ),
-        optparse.make_option(
+        parser.add_argument(
             "-t", "--pot-file",
             action="store_true",
             dest="pot-file",
             default=False,
             help="Create a POT-file."
         ),
-        optparse.make_option(
-            "-s", "--verbose",
-            action="store_true",
-            dest="verbose",
-            default=False,
-            help="Show more information."
-        ),
-    ]
 
     def handle(self, *args, **options):
         """Run the command.
@@ -70,7 +60,7 @@ class Command(BaseCommand):
         if options["pot-file"]:
 
             # Verbose.
-            if options["verbose"]:
+            if options["verbosity"]:
                 self.stdout.write(
                     "collect_messages: processing POT-file")
 
@@ -81,7 +71,7 @@ class Command(BaseCommand):
             # Build the POT-file.
             potfile = POFile()
             potfile.metadata = metadata
-            for message in self._find_all(verbose=options["verbose"]):
+            for message in self._find_all(verbose=options["verbosity"]):
                 potfile.append(message)
 
             # Save the POT-file.
@@ -92,7 +82,7 @@ class Command(BaseCommand):
         for language in languages:
 
             # Verbose.
-            if options["verbose"]:
+            if options["verbosity"]:
                 self.stdout.write(
                     "collect_messages: processing language '%s'" % language)
 
@@ -105,7 +95,7 @@ class Command(BaseCommand):
             pofile = POFile()
             pofile.metadata = metadata
             for message in self._find_all(language=language,
-                                          verbose=options["verbose"]):
+                                          verbose=options["verbosity"]):
                 pofile.append(message)
 
             # Save the PO-file.

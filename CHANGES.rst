@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+django-collectmessages 0.4
+--------------------------
+
+- Migrate management command options from optparse to argparse [bvderbau]
+
+
 django-collectmessages 0.3
 --------------------------
 
