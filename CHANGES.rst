@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+django-collectmessages 1.0
+--------------------------
+
+- Migrate the code to Python 3 (PTB-494) [bvderbau]
+
+
 django-collectmessages 0.4
 --------------------------
 
